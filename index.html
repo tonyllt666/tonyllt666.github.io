@@ -9,3 +9,42 @@
     <p>这是用 GitHub Pages 免费托管的作业网站。</p>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>悬停动画+音效 - 9个独立图标</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="icons-grid">
+            <!-- 9个图标，每个都有独立的id和自定义属性data-index -->
+            <img src="images/icon1.png" class="icon" data-index="1" alt="图标1">
+            <img src="images/icon2.png" class="icon" data-index="2" alt="图标2">
+            <img src="images/icon3.png" class="icon" data-index="3" alt="图标3">
+            <img src="images/icon4.png" class="icon" data-index="4" alt="图标4">
+            <img src="images/icon5.png" class="icon" data-index="5" alt="图标5">
+            <img src="images/icon6.png" class="icon" data-index="6" alt="图标6">
+            <img src="images/icon7.png" class="icon" data-index="7" alt="图标7">
+            <img src="images/icon8.png" class="icon" data-index="8" alt="图标8">
+            <img src="images/icon9.png" class="icon" data-index="9" alt="图标9">
+        </div>
+    </div>
+
+    <!-- 隐藏的9个音频元素 -->
+    <div style="display: none;">
+        <audio id="sound1" preload="auto"><source src="sounds/sound1.mp3" type="audio/mpeg"></audio>
+        <audio id="sound2" preload="auto"><source src="sounds/sound2.mp3" type="audio/mpeg"></audio>
+        <audio id="sound3" preload="auto"><source src="sounds/sound3.mp3" type="audio/mpeg"></audio>
+        <audio id="sound4" preload="auto"><source src="sounds/sound4.mp3" type="audio/mpeg"></audio>
+        <audio id="sound5" preload="auto"><source src="sounds/sound5.mp3" type="audio/mpeg"></audio>
+        <audio id="sound6" preload="auto"><source src="sounds/sound6.mp3" type="audio/mpeg"></audio>
+        <audio id="sound7" preload="auto"><source src="sounds/sound7.mp3" type="audio/mpeg"></audio>
+        <audio id="sound8" preload="auto"><source src="sounds/sound8.mp3" type="audio/mpeg"></audio>
+        <audio id="sound9" preload="auto"><source src="sounds/sound9.mp3" type="audio/mpeg"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
