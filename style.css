@@ -1,24 +1,45 @@
-/* 其他布局样式不变 */
 .icons-grid {
     display: grid;
     grid-template-columns: repeat(3, 200px);
     gap: 30px;
     justify-content: center;
+   margin-top: 200px;
+}
+Ipad
+@media (max-width: 768px) {
+    .icons-grid {
+        grid-template-columns: repeat(3, minmax(120px, 160px));
+        gap: 20px;
+    }
+    .icon {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; 
+    }
+}
+phone 
+@media (max-width: 480px) {
+    .icons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    .icon {
+        max-width: 140px;
+        margin: 0 auto;
+    }
 }
 
-/* 重点：让每个图标变成圆形 */
 .icon {
     width: 200px;
-    height: 200px;
-    object-fit: contain;    /* 保持图片比例 */
-    border-radius: 50%;     /* 变成圆形 */
+    height:200px;
+    object-fit: contain;
+    border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background: white;      /* 可选，圆形背景色 */
+    background: white;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-/* 悬停动画：放大 + 旋转 + 阴影 */
 .icon:hover {
     transform: scale(1.1) rotate(2deg);
     filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
