@@ -1,14 +1,12 @@
-// ---------- 1. 获取所有图标和所有音频 ----------
-const icons = document.querySelectorAll('.icon');
+const icons = document.querySelectorAll('.icon');  /* colleet all icon audio elements */
 const allAudios = [];
 for (let i = 1; i <= 9; i++) {
     const audio = document.getElementById(`sound${i}`);
     if (audio) allAudios.push(audio);
 }
 
-// ---------- 2. 音频解锁 ----------
 let isAudioUnlocked = false;
-function unlockAllAudios() {
+function unlockAllAudios() {  /* unlock interactive audio */
     if (isAudioUnlocked) return;
     if (allAudios.length === 0) return;
     const testAudio = allAudios[0];
@@ -16,36 +14,31 @@ function unlockAllAudios() {
         testAudio.pause();
         testAudio.currentTime = 0;
         isAudioUnlocked = true;
-        console.log("✅ 音频已解锁！");
+        console.log("audio unlocked");   /* audio debugging */
         const infoDiv = document.querySelector('.info');
         if (infoDiv) infoDiv.textContent = '';
     }).catch(e => {
-        console.log("解锁失败，请点击页面任意位置", e);
+        console.log("Audio unlocked failed. Click anywhere", e);
     });
 }
 document.body.addEventListener('click', unlockAllAudios);
 document.body.addEventListener('touchstart', unlockAllAudios);
 
-// ---------- 3. 为每个图标绑定功能：悬停0.5秒换图 + 点击临时换图 + 音效 ----------
 icons.forEach((icon) => {
-    const idx = icon.getAttribute('data-index');   // 数字 1~9
+    const idx = icon.getAttribute('data-index'); 
     const audio = document.getElementById(`sound${idx}`);
     if (!audio) {
-        console.warn(`未找到图标${idx}对应的音频`);
         return;
     }
 
-  const originalImgPath = `images/icon${idx}.png`;                     // 原始图片
-  const hoverImgPath   = `images/hoverImage/change icon${idx}.png`;   // 悬停图片（注意空格）
-  const clickImgPath   = `images/changed/icon${idx}.png`;              // 如果你有点击图片文件夹，也改好              // 点击时临时显示的图片
+  const originalImgPath = `images/icon${idx}.png`;
+  const hoverImgPath   = `images/hoverImage/change icon${idx}.png`;
 
-    // 状态管理
     icon.originalSrc = originalImgPath;
     icon.hoverTimer = null;
     icon.isHovering = false;
     icon.isClickChanging = false;
 
-    // 初始化显示原始图片
     if (icon.src !== originalImgPath) {
         icon.src = originalImgPath;
     }
@@ -57,7 +50,6 @@ icons.forEach((icon) => {
         }
     }
 
-    // 鼠标悬停：延迟0.5秒换图
     icon.addEventListener('mouseenter', () => {
         icon.isHovering = true;
         if (icon.isClickChanging) return;
@@ -73,7 +65,6 @@ icons.forEach((icon) => {
         }, 500);
     });
 
-    // 鼠标离开：清除定时器，恢复原图
     icon.addEventListener('mouseleave', () => {
         icon.isHovering = false;
         if (icon.hoverTimer) {
@@ -85,7 +76,6 @@ icons.forEach((icon) => {
         }
     });
 
-    // 悬停播放音频（原有）
     icon.addEventListener('mouseenter', () => {
         if (!isAudioUnlocked) return;
         audio.currentTime = 0;

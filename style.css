@@ -3,7 +3,7 @@
     grid-template-columns: repeat(3, 200px);
     gap: 30px;
     justify-content: center;
-   margin-top: 200px;
+    margin-top: 200px;
 }
 Ipad
 @media (max-width: 768px) {
@@ -14,21 +14,17 @@ Ipad
     .icon {
         width: 100%;
         height: auto;
-        aspect-ratio: 1 / 1; 
+        aspect-ratio: 1 / 1;
+        margin-top: 100px; 
     }
 }
 phone 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .icons-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-    }
-    .icon {
-        max-width: 140px;
-        margin: 0 auto;
+        grid-template-columns: repeat(3, minmax(80px, 100px));
+        gap: 12px;
     }
 }
-
 .icon {
     width: 200px;
     height:200px;
@@ -36,11 +32,11 @@ phone
     border-radius: 50%;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: white 0 4px 12px rgba(0,0,0,0.1);  /* white border(DO NOT ADJUST) */
+
 }
 
 .icon:hover {
     transform: scale(1.1) rotate(2deg);
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2)); /* shadou background offset */
 }
